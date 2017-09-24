@@ -71,7 +71,7 @@ If you want the user that will generate the reminders to by another than you, af
 In the **Basic information** you can customize logo, color etc.
 
 ### Script
-For the reminders.py script you will need to input the following things , there are examples  in the script commets:
+For the *Reminders.py* script you will need to input the following things , there are examples  in the script commets:
 
 `period` seconds that you want the  send reminders operation to start. So if you put it 86400 it will start every day
 Please notice that the time for the reminder circle to run will be about  total users * 2.5 seconds 
@@ -81,6 +81,6 @@ Please notice that the time for the reminder circle to run will be about  total 
 `remindertext` ( the text for your reminders, please leave the tripe quotes as they are  )
 `msgroomid` A room ID of a  private room, that the bot will report  to you for script operations (start / end of process and any error should those occur )  How to get  this: Please alter your slack from a between different rooms, you will see the url being changed  CXXXXX is a public room, DXXXXX is a DM room, GXXXXX is a private room/group conversation.  For bot reporting it would be better if  you should input a private room ID.
 
-Be sure to invite the bot user to the private room so that the bot has access to  send messages to it. It's better if that room is monitored by several admins. So invite the people that you deem necessary, there will be lots of notifications in the next bot updates.
+Be sure to **invite the bot user to the private room** so that the bot has access to  send messages to it. It's better if that room is monitored by several admins. So invite the people that you deem necessary, there will be lots of notifications in the next bot updates.
 
-If you also use other slack bots then you might need to finetune the rate at  which requests are sent to the slack API, please edit the APIrate.py  file, it has 2 variables for editing, seconds and apireqs   2 and 1 means that your app will make  1 api request every 2 seconds.  3 and 1 means 1 api request every 3 seconds.  The default values should be OK if you are not making other API requests.
+If you also use other slack bots then you might need to finetune the rate at  which requests are sent to the slack API, please edit the *Apirate.py*  file, it has 2 variables for editing, `seconds` and `apireqs`   2 and 1 means that your app will make  1 api request every 2 seconds.  3 and 1 means 1 api request every 3 seconds.  The default values should be OK if you are not making other API requests. Actually slack claims ( https://api.slack.com/docs/rate-limits ) that it allows 1 request per second, but during our test, we have found this not to be true. In case of a request being  blocked by slack due to violation of the API rate limits, please alter the *Apirate.py* file accordingly 
