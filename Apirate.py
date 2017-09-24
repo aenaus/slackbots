@@ -5,12 +5,13 @@ import time
 
 
 ##################
-seconds=2.5 # after Y seconds the api rate counter will become 0
-apireqs=1 # X api requests will be allowed ever Y seconds
+seconds=5 # after Y seconds the api rate counter will become 0
+apireqs=2 # X api requests will be allowed ever Y seconds
 ##################
 class APIcount:
-    '''Class that checks that no more than 5 API calls can be made for a period of 5 seconds
-    If more calls than that are made it waits minimum 1 second until API calls are freed'''
+    '''Class that checks that no more than `apireqs` number of API calls can be made for a period 
+    of `seconds` seconds .If more calls than that are made it waits minimum 1 second until API
+    calls are freed'''
     maxsecs=seconds
     maxcalls=apireqs
     def __init__(self,calls=0):
@@ -34,7 +35,7 @@ class APIcount:
             pass
         elif self.calls>=self.maxcalls and self.activetime>=self.maxsecs:
             self.reset()
-            time.sleep(1)
+            #time.sleep(1)
             pass
 
 

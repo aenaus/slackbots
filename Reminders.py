@@ -14,22 +14,22 @@ remindertxt=( '''
 Hello!
 This is a text that follows slack guidelines *for*  _formating_ `about` links and usernames
 Make sure to change them to reflect your values if you are to use those
-<@U5TD31C11|arthur> <- This is a username
-<https://slack-files.com/T5L09JNUA-F6XLDJ4Q6-18af810248| a *SCAM* phising email >  <- this is a url
+<@USLACKBOT|slackbot> <- This is a username
+<https://slack-files.com/T5L09JNUA-F6XLDJ4Q6-18eb910248| a *SCAM* phising email >  <- this is a url
 *<#C5L1R4QAL|general>*  <- This is a channel
 
 ''' )
 
 
                                                 
-token1 = ('xoxp-2071de55cfe') #user1  token
-token2 = ('xoxb-2423cujJV') #bot1  token
+token1 = ('xoxp-2071de56cfe') #user1  token
+token2 = ('xoxb-2423cujQV') #bot1  token
 
-period =  86400 # period in seconds for which the reminders send circle will restart
+period =  86400# period in seconds for which the reminders send circle will restart
 msgroomid=  'G6GUDUN22' # id of the room for bot messages for reports
 
 ########################################################################################
-timeout=3  #timeout in seconds for http requests
+timeout=2  #timeout in seconds for http requests
 allusersids=[]
 results1={}
 
@@ -52,7 +52,7 @@ def get_users(token):
     '''gets the users list'''
     cursor=""
     url = ( 'https://slack.com/api/users.list?token='
-            +token+'&limit=1&presence=false' ) 
+            +token+'&limit=1000&presence=false' ) 
         
     result={'members':[]} 
     result1=  create_request(url)
@@ -69,10 +69,9 @@ def get_users(token):
         url = ( 'https://slack.com/api/users.list?token='
                 +token+'&limit=1&presense=false&cursor='+cursor )
         
-        result1=create_request(url)
+        result1=create_request(url,timeout=0.01)
         result['members']=result1['members']+result['members']
         if result1['ok']==False:
-            
             do_send_botmessage('WARN:get_users error, '+str(result1['error']), msgroomid)
     return result
  
@@ -109,7 +108,6 @@ def do_send_reminder(message,username,intime):
     while x<3:
         try:
             while posted == False and retries < 3 :
-                #sleep(1)
                 
                 result=create_request(url)
                 posted,retries=result['ok'],retries+1
@@ -138,7 +136,7 @@ def main1():
     allusersids = gather_allusers(results1)
     do_send_botmessage("INFO: Start of reminders Sending")
     for i in allusersids[1]:
-        do_send_reminder(remindertxt, i, 1)
+        do_send_reminder(remindertxt, i, 1) 
     do_send_botmessage("INFO: End of reminders Sending")  
 
 
