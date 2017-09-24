@@ -27,6 +27,8 @@ fi
 ```
 Don't forget to make *slackReminders.sh* executable by running `chmod +x slackReminders.sh`
 
+Also edit the cron task in the cron line and the *slackReminders.sh* script to match your paths
+
 ### Slack
 Security settings review:
 Go to  yourteamurl.slack.com/apps/manage/permissions
