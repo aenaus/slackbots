@@ -45,7 +45,7 @@ If the latter is checked the selected group should be only 'WorkSpace Admins'
 
 >Allow members to request additions to Approved Apps
 
-As you see fit , we don't allow
+As you see fit
        
 Then go to yourteamurl.slack.com/apps/manage
 
