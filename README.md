@@ -54,11 +54,12 @@ Remove / disable all unknown (not added by you and don't know exactly what they 
 Then in order to create an APP for the reminders :
 https://api.slack.com/apps   and select **Create New App**
 Add a name and select the workspace for that APP
-Then to **Bot Users**  on the left and **Add a Bot User**  for your application, select the 'always show my bot as online'
+
+Then go to **Bot Users**  on the left and **Add a Bot User**  for your application, select the 'always show my bot as online'
+
 Select **OAuth & Permissions** and then go to Scopes :
 Add the following : `chat:write:bot`  , `reminders:write`   , `users:read`  and save changes
 Also, in the **Restrict API Token Usage** below you should put for security the Static IP address of the server that will be running the scripts. This is important because in case your token is compromised Slack will  not allow other IP addresses to use the token.
-
 
 Then you should go to the **Install App** section and **Install  App To Workspace**
 Then  on this **Install App** section you will have one **OAuth Access Token** and one **Bot User OAuth Access Token**. The first is for the user the second is for the bot.  These Tokens are Private!! Treat those as passwords.
