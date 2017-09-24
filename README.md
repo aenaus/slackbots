@@ -32,16 +32,19 @@ Also edit the cron task in the cron line and the *slackReminders.sh* script to m
 ### Slack
 Security settings review:
 Go to  yourteamurl.slack.com/apps/manage/permissions
+
 >Approved Apps
-Set this to ON
->Only pre-approved apps can be installed by members
+
+**Set this to ON**
 
 >These people can manage Approved Apps and custom integrations
 > Workspace Owners only	 
->Workspace Owners and selected members or groups 
+>Workspace Owners and selected members or groups
+
 If the latter is checked the selected group should be only 'WorkSpace Admins'
 
 >Allow members to request additions to Approved Apps
+
 As you see fit , we don't allow
        
 Then go to yourteamurl.slack.com/apps/manage
